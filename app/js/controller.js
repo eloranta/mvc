@@ -26,19 +26,40 @@ function Controller($scope){
   $scope.n = $scope.prime = 2;
   
   var timer = setInterval(function(){
-  
-  if ($scope.n == $scope.prime){
-    $scope.number[$scope.n].prime = 1;
-    $scope.number[$scope.n].color = "red";
+    if ($scope.n == -1){
+      for (var i = 2; i < $scope.number.length; ++i){
+        $scope.number[i].prime = -1;
+        $scope.number[i].color = "gray";
+      }
+      $scope.n = $scope.prime = 2;
+      $scope.$apply();
+      return;
+    }
+    if ($scope.n == $scope.prime){
+      $scope.number[$scope.n].prime = 1;
+      $scope.number[$scope.n].color = "red";
+      $scope.n += $scope.prime;
+      if ($scope.n >= $scope.number.length){
+        $scope.n = $scope.prime = findNextPrime($scope);
+      }
+      $scope.$apply();
+      return;
+    }
+    $scope.number[$scope.n].prime = 0;
+    $scope.number[$scope.n].color = "cyan";
     $scope.n += $scope.prime;
+    if ($scope.n >= $scope.number.length){
+      $scope.n = $scope.prime = findNextPrime($scope);
+    }
     $scope.$apply();
-    return;
-  }
-  $scope.number[$scope.n].prime = 0;
-  $scope.number[$scope.n].color = "cyan";
-  $scope.n += $scope.prime;
-  $scope.$apply();
   }, 1000);
 
+  function findNextPrime(scope){
+    for (var i = 0; i < scope.number.length; ++i){
+      if (scope.number[i].prime == -1){
+        return i;
+      }
+    }
+    return -1;
+  }
 }
-
