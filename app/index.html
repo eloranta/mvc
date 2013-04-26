@@ -6,17 +6,16 @@
     <script src="js/controller.js"></script>
   </head>
 
-  <body ng-controller="Controller">
+  <body>
   
-    <p>
-      <input type="checkbox" ng-model="model"/>
-      {{model}}
-    </p>
-    <p>
-      <input type="checkbox" ng-model="model"/>
-      {{model}}
-    </p>
-
+    <!-- <div ng-controller="Controller">{{n[i]}}<div> -->
+    
+    <div ng-controller="Controller">
+      <div ng-repeat="n in number">
+        {{n.value}} {{n.color}}
+      </div>
+    </div>
+    
   </body>
 
 </html>
