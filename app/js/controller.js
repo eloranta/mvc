@@ -1,11 +1,10 @@
 function Controller($scope){
-
-  $scope.rows = [0, 1, 2, 3];
+  var maxNumber = 120;
+  $scope.rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   $scope.cols = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
   $scope.number = [];
   $scope.number.push({"value": 1, "color":"white", "prime":0});
-  for (var i = 2; i <= 40; ++i){
+  for (var i = 2; i <= maxNumber; ++i){
     $scope.number.push({"value": i, "color":"gray", "prime":-1});
   }
 
@@ -38,7 +37,7 @@ function Controller($scope){
       $scope.n = $scope.prime = findNextPrime($scope);
     }
     $scope.$apply();
-  }, 1000);
+  }, 100);
 
   function findNextPrime(scope){
     for (var i = 0; i < scope.number.length; ++i){
