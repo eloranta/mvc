@@ -8,13 +8,15 @@
 
   <body>
   
-    <!-- <div ng-controller="Controller">{{n[i]}}<div> -->
-    
-    <div ng-controller="Controller">
-      <div ng-repeat="n in number">
-        {{n.value}} {{n.color}}
-      </div>
-    </div>
+    <table ng-controller="Controller">
+      <tr ng-repeat="y in rows">
+        <td ng-repeat="x in cols">
+          <font color="{{number[10*y+x].color}}">
+            {{number[10*y+x].value}}
+          </font>
+        </td>
+      </tr>
+    </table>
     
   </body>
 
