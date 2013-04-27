@@ -1,23 +1,21 @@
 <html ng-app>
 
   <head>
-    <title>Model View Controller</title>
+    <title>Eratosthene's Sieve</title>
     <script src="lib/angular/angular.js"></script>
     <script src="js/controller.js"></script>
   </head>
 
   <body>
-  
     <table ng-controller="Controller">
       <tr ng-repeat="y in rows">
-        <td ng-repeat="x in cols">
-          <font color="{{number[10*y+x].color}}">
+        <td ng-repeat="x in cols" bgcolor="{{number[10*y+x].color}}"  align="hcenter">
+          <font size="3">
             {{number[10*y+x].value}}
           </font>
         </td>
       </tr>
     </table>
-    
   </body>
 
 </html>
