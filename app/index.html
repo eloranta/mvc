@@ -9,10 +9,8 @@
   <body>
     <table ng-controller="Controller">
       <tr ng-repeat="y in rows">
-        <td ng-repeat="x in cols" bgcolor="{{number[10*y+x].color}}"  align="hcenter">
-          <font size="3">
-            {{number[10*y+x].value}}
-          </font>
+        <td ng-repeat="x in cols" bgcolor="{{number[10*y+x].color}}"  style="text-align:center;">
+             {{number[10*y+x].value}}
         </td>
       </tr>
     </table>
