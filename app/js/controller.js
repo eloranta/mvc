@@ -1,7 +1,10 @@
 function Controller($scope){
   var maxNumber = 120;
-  $scope.rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-  $scope.cols = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var columns = 10;
+  
+  $scope.rows = range(maxNumber / columns);
+  $scope.cols = range(columns);
+  
   $scope.number = [];
   $scope.number.push({"value": 1, "color":"white", "prime":0});
   for (var i = 2; i <= maxNumber; ++i){
@@ -46,8 +49,13 @@ function Controller($scope){
     }
     return -1;
   }
-
-
+  
+  function range(n){
+    result = [];
+    for (var i = 0; i < n; ++i)
+      result.push(i);
+    return result;
+ }
 }
 
 
